@@ -15,11 +15,14 @@ function App() {
 
   useEffect(() => {
     (async () => {
+      if (loginProcess) {
+        return
+      }
+      setLoginProcess(true)
       const auth = container.resolve(AuthUnit)
       const p2p = container.resolve(P2pUnit)
       let user = await auth.getCurrentUser()
       if (!user) {
-        setLoginProcess(true)
         user = await auth.createGuestUser()
         auth.setCurrentUser(user)
       }
