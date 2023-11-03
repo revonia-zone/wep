@@ -1,51 +1,42 @@
-import {Link} from "react-router-dom";
-import {useUnitContainer} from "../units/UnitContainerProvider";
-import {AuthUnit} from "../units/AuthUnit";
-import {useMemo, useState} from "react";
-import {P2pUnit} from "../units/P2pUnit";
-import {Multiaddr} from "@multiformats/multiaddr";
+import {AuthUnit} from "@/units/auth-unit";
+import {P2pUnit} from "@/units/p2p-unit";
+import {Outlet} from "react-router-dom";
+import {container} from "tsyringe";
+import Layout from "@/components/base/layout";
+import {useUserStore} from "@/stores/user-store";
+import {NetworkStatus, useNetworkStore} from "@/stores/network-store";
+
+export async function rootLoader() {
+  const auth = container.resolve(AuthUnit)
+  const p2p = container.resolve(P2pUnit)
+  let user = await auth.getCurrentUser()
+  if (!user) {
+    user = await auth.createGuestUser()
+    auth.setCurrentUser(user)
+  }
+  await p2p.start()
+  useUserStore.getState().login(user)
+
+  const networkState = useNetworkStore.getState()
+
+  networkState.update({ status: NetworkStatus.CONNECTED })
+
+  p2p.node.addEventListener('peer:connect', () => {
+    networkState.update({ peers: p2p.node.getPeers() })
+  })
+
+  p2p.node.addEventListener('self:peer:update', (evt) => {
+    networkState.update({ multiaddrs: p2p.node.getMultiaddrs() })
+  })
+
+  return null
+}
+
 
 export default function Root() {
-  const container = useUnitContainer()
-
-  const auth = useMemo(() => container.resolve(AuthUnit), []);
-  const p2p = useMemo(() => container.resolve(P2pUnit), []);
-  const [multiaddrs, setMultiaddrs] = useState<Multiaddr[]>([])
-
   return (
-    <>
-      <div id="sidebar">
-        <h1>React Router Contacts</h1>
-        <div>
-          hello, {auth.username}
-        </div>
-        <div>
-          your peerId is: {auth.getPeerId()?.toString()}
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <Link to={`/login`}>Login</Link>
-            </li>
-            <li>
-              <Link to={`/home`}>Home</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <button onClick={() => {
-          setMultiaddrs(p2p.multiaddrs)
-        }}>show multiaddr</button>
-
-        <ul>
-          {multiaddrs.map((multiaddr, index) => {
-            return (
-              <li key={index}>{multiaddr.toString()}</li>
-            )
-          })}
-        </ul>
-      </div>
-      <div id="detail"></div>
-    </>
+    <Layout>
+      <Outlet />
+    </Layout>
   );
 }

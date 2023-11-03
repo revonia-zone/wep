@@ -1,12 +1,12 @@
-import {DataUnit} from "./DataUnit";
+import {DataUnit} from "./data-unit";
 import {generateKeyPair, importKey } from "@libp2p/crypto/keys";
 import {createFromPrivKey} from "@libp2p/peer-id-factory";
 import {randomBytes} from "crypto";
 import {PeerId} from "@libp2p/interface/peer-id";
 import {injectable, singleton} from "tsyringe";
-import {EventUnit} from "./EventUnit";
+import {EventUnit} from "./event-unit";
 
-interface UserInfo {
+export interface UserInfo {
   username: string
   privateKey: string
   peerId: PeerId
@@ -71,7 +71,7 @@ export class AuthUnit {
     const userInfo: UserInfo = {
       privateKey,
       peerId,
-      username: `guest-${window.crypto.randomUUID()}`
+      username: `guest`
     }
     return userInfo
   }

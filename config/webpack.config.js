@@ -323,6 +323,7 @@ module.exports = function (webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
+        '@': path.resolve(__dirname, '../src/'),
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -755,5 +756,15 @@ module.exports = function (webpackEnv) {
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,
+    ignoreWarnings: [
+      function ignoreSourcemapsloaderWarnings(warning) {
+        return (
+          warning.module &&
+          warning.module.resource.includes("node_modules") &&
+          warning.details &&
+          warning.details.includes("source-map-loader")
+        );
+      },
+    ]
   };
 };
