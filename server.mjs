@@ -23,7 +23,9 @@ async function createNode(peerId) {
     addresses: {
       listen: [
         '/ip4/127.0.0.1/tcp/8000/ws',
-        '/dns4/local.wep-server.dev/tcp/443/wss',
+      ],
+      announce: [
+        '/dns4/local.wep-server.dev/tcp/443/wss'
       ]
     },
     transports: [webSockets()],
@@ -68,7 +70,7 @@ async function run() {
     console.log(addr.toString())
   })
 
-  console.log(`/dns4/local.wep-server.dev/tcp/443/wss/p2p/${peerId.toString()}`)
+  // console.log(`/dns4/local.wep-server.dev/tcp/443/wss/p2p/${peerId.toString()}`)
 
   node.addEventListener('peer:discovery', (evt) => {
     console.log('Discovered %s', evt.detail.id.toString()) // Log discovered peer
