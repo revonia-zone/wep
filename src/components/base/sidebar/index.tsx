@@ -2,12 +2,12 @@ import UserCard from "./user-card";
 import PageTreeViewer from "./page-tree-viewer";
 import NetworkCard from "./network-card";
 import {Button} from "@/components/ui/button";
-import {Blocks, Search, Settings} from "lucide-react";
+import {Blocks, Settings} from "lucide-react";
 import {useAppStore} from "@/stores/app-store";
+import {Link} from "react-router-dom";
 
 export default function Sidebar() {
   const sidebarItems = useAppStore((state) => state.view.sidebar)
-
 
   return (
     <div className="w-64 border-r border-r-gray-100 flex flex-col px-2">
@@ -26,23 +26,28 @@ export default function Sidebar() {
           </Button>
         ))}
 
-        <Button
-          variant="ghost"
-          size="sm"
-          className="w-full py-1 justify-start px-4 font-normal"
-        >
-          <Blocks className="inline-block mr-2" size={16} strokeWidth={1.5}/>
-          Apps
-        </Button>
+        <Link to="/apps">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full py-1 justify-start px-4 font-normal"
+          >
+            <Blocks className="inline-block mr-2" size={16} strokeWidth={1.5}/>
+            Apps
+          </Button>
+        </Link>
 
-        <Button
-          variant="ghost"
-          size="sm"
-          className="w-full py-1 justify-start px-4 font-normal"
-        >
-          <Settings className="inline-block mr-2" size={16} strokeWidth={1.5}/>
-          Settings
-        </Button>
+
+        <Link to="/settings">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full py-1 justify-start px-4 font-normal"
+          >
+            <Settings className="inline-block mr-2" size={16} strokeWidth={1.5}/>
+            Settings
+          </Button>
+        </Link>
       </div>
       <PageTreeViewer/>
       <NetworkCard/>

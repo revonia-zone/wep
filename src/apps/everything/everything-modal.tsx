@@ -6,7 +6,8 @@ import {
 } from "@/components/ui/dialog";
 import {SearchType, useEverythingStore} from "@/apps/everything/store";
 import {cn} from "@/utils/cn";
-import { ExternalLink, Search, X} from "lucide-react";
+import { ExternalLink, Search} from "lucide-react";
+import {useNavigate} from "react-router-dom";
 
 
 export function EverythingModal({show, onClose}: { show: boolean, onClose: () => void }) {
@@ -30,28 +31,55 @@ export function EverythingModal({show, onClose}: { show: boolean, onClose: () =>
     ]
   }, []);
 
+  const navigate = useNavigate();
+
+  const close = () => {
+    setOpen(false)
+    setTimeout(onClose, 200)
+  }
+
   return (
     <Dialog
       open={open}
       onOpenChange={(open) => {
         if (!open) {
-          setOpen(false)
-          setTimeout(onClose, 200)
+          close()
         }
       }}
     >
       <DialogContent
         hideClose
-        className="p-0 overflow-y-auto max-w-[650px]"
+        className="p-2 overflow-y-auto max-w-[650px]"
       >
-
         <DialogHeader className="space-y-0">
-          <div className="flex items-center">
+          <div className="flex border-gray-100 hover:text-gray-800 items-center mb-2">
+            <Search className="text-gray-600 block ml-2" size={18} strokeWidth={1.5} />
+            <input
+              type="text"
+              className="flex-1 block w-full outline-none p-2 placeholder:italic  placeholder:font-light"
+              value={keyword}
+              placeholder="Search everything..."
+              onChange={(e) => {
+                setInput({keyword: e.target.value})
+              }}
+            />
+            <button
+              className="mx-2 p-1 text-sm text-gray-400 hover:bg-accent outline-none transition-all rounded"
+              onClick={() => {
+                close()
+                navigate('/everything/result')
+              }}
+              key="open-result"
+            >
+              <ExternalLink size={16} strokeWidth={1.5} />
+            </button>
+          </div>
+          <div className="flex items-center space-x-2">
             {types.map((t) => (
               <button
                 className={
-                  cn('px-4 py-2 text-sm font-medium text-gray-400 hover:bg-accent outline-none transition-all', {
-                    'text-blue-500': type === t.key,
+                  cn('px-2 py-0.5 text-sm font-medium text-gray-300 hover:bg-accent hover:text-gray-600 outline-none transition-all rounded', {
+                    'text-gray-800 bg-accent': type === t.key,
                   })
                 }
                 onClick={() => {
@@ -63,38 +91,8 @@ export function EverythingModal({show, onClose}: { show: boolean, onClose: () =>
               </button>
             ))}
             <div className="flex-1" />
-            <button
-              className="mx-2 p-1 text-sm text-gray-400 hover:bg-accent outline-none transition-all rounded"
-              onClick={() => {
-              }}
-              key="open-result"
-            >
-              <ExternalLink size={16} strokeWidth={1.5} />
-            </button>
+          </div>
 
-            <button
-              className="mx-2 p-1 text-sm text-gray-400 hover:bg-accent outline-none transition-all rounded"
-              onClick={() => {
-                setOpen(false)
-                setTimeout(onClose, 200)
-              }}
-              key="hide"
-            >
-              <X size={16} strokeWidth={1.5} />
-            </button>
-          </div>
-          <div className="flex border-b border-t border-gray-100 hover:text-gray-800 items-center">
-            <Search className="text-gray-600 block ml-2" size={18} strokeWidth={1.5} />
-            <input
-              type="text"
-              className="flex-1 block w-full outline-none px-2 py-2 placeholder:italic placeholder:font-light text-sm"
-              value={keyword}
-              placeholder="Search everything..."
-              onChange={(e) => {
-                setInput({keyword: e.target.value})
-              }}
-            />
-          </div>
         </DialogHeader>
 
         <div className="h-[400px]">

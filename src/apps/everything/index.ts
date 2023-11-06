@@ -1,19 +1,20 @@
 import {Search} from "lucide-react";
 import {useEverythingStore} from "./store";
 import EverythingRoot from "./everything-root";
-import {AppProvide} from "@/types/app-type";
+import {AppInstance} from "@/units/app-manage-unit";
+import EverythingResultPage from "@/apps/everything/result-page";
 
-export async function activate() {
 
-}
-
-export async function deactivate() {
-  useEverythingStore.getState().reset()
-}
-
-export function provide(): AppProvide {
-  return {
+export default class EverythingApp implements AppInstance {
+  appId = 'libmemo.builtin.everything'
+  provides = {
     name: 'Everything',
+    routes: [
+      {
+        path: 'everything/result',
+        Component: EverythingResultPage
+      }
+    ],
     view: {
       sidebar: [
         {
@@ -26,5 +27,13 @@ export function provide(): AppProvide {
         EverythingRoot,
       ]
     }
+  }
+
+  async activate() {
+
+  }
+
+  async deactivate() {
+    useEverythingStore.getState().reset()
   }
 }
