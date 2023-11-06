@@ -1,5 +1,5 @@
 import {injectable, singleton} from "tsyringe";
-import {EventUnit} from "./EventUnit";
+import {EventUnit} from "./event-unit";
 
 @injectable()
 @singleton()
