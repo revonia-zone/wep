@@ -17,7 +17,6 @@ import {injectable, singleton} from "tsyringe";
 import {EventUnit} from "./event-unit";
 import {PeerId} from "@libp2p/interface/peer-id";
 
-
 type P2pNodeWithService = Awaited<ReturnType<typeof createP2pNode>>
 
 export async function createP2pNode(peerId: PeerId, bootstrapMultiaddrs: string[]) {
@@ -37,7 +36,7 @@ export async function createP2pNode(peerId: PeerId, bootstrapMultiaddrs: string[
       }),
       webRTC(),
       circuitRelayTransport({
-        discoverRelays: 0
+        discoverRelays: 10
       })
     ],
     connectionGater: {
@@ -66,10 +65,11 @@ export async function createP2pNode(peerId: PeerId, bootstrapMultiaddrs: string[
 export class P2pUnit {
 
   bootstrapMultiaddrs = [
-    '/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb',
-    '/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN',
-    '/dnsaddr/bootstrap.libp2p.io/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa',
-    '/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt',
+    '/dns4/local.wep-server.dev/tcp/443/wss/p2p/12D3KooWEEkMYYgRta9NGqvUS6xd94ufwqzmJLp8LhmThQq6m86C'
+    // '/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb',
+    // '/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN',
+    // '/dnsaddr/bootstrap.libp2p.io/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa',
+    // '/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt',
   ]
 
   private _node: P2pNodeWithService | null = null

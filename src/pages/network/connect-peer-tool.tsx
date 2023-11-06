@@ -3,10 +3,17 @@ import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {useId, useState} from "react";
+import {container} from "tsyringe";
+import {P2pUnit} from "@/units/p2p-unit";
+import {multiaddr} from "@multiformats/multiaddr";
+import {peerIdFromString} from "@libp2p/peer-id";
+import {Connection} from "@libp2p/interface/src/connection";
 
 export default function ConnectPeerTool(props: { className?: string }) {
   const peerIdInputId = useId()
   const [peerIdOrAddr, setPeerIdOrAddr] = useState<string>('')
+
+  const p2p = container.resolve(P2pUnit)
 
   return (
     <>
@@ -33,7 +40,20 @@ export default function ConnectPeerTool(props: { className?: string }) {
         <CardFooter className="flex justify-between">
           <Button
             disabled={!peerIdOrAddr}
-            onClick={() => {
+            onClick={async () => {
+              let conn: Connection
+              try {
+                if (peerIdOrAddr.startsWith('/')) {
+                  conn = await p2p.node.dial(multiaddr(peerIdOrAddr))
+                } else {
+                  conn = await p2p.node.dial(peerIdFromString(peerIdOrAddr))
+                }
+
+                console.log('connect success', conn)
+              } catch (e) {
+                console.log('connect failed', e)
+              }
+
             }}
           >Connect</Button>
         </CardFooter>
