@@ -5,8 +5,11 @@ import {container} from "tsyringe";
 import Layout from "@/components/base/layout";
 import {useUserStore} from "@/stores/user-store";
 import {NetworkStatus, useNetworkStore} from "@/stores/network-store";
+import {useAppStore} from "@/stores/app-store";
+import * as EverythingApp from '@/apps/everything'
 
 export async function rootLoader() {
+  // unit
   const auth = container.resolve(AuthUnit)
   const p2p = container.resolve(P2pUnit)
   let user = await auth.getCurrentUser()
@@ -29,14 +32,18 @@ export async function rootLoader() {
     networkState.update({ multiaddrs: p2p.node.getMultiaddrs() })
   })
 
+  // app
+  useAppStore.getState().activateApp(EverythingApp)
   return null
 }
 
 
 export default function Root() {
+  const components = useAppStore((state) => state.view.rootComponents)
   return (
     <Layout>
       <Outlet />
+      {components.map((Component, index) => <Component key={index} />)}
     </Layout>
   );
 }

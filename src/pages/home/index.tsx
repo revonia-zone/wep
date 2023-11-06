@@ -1,4 +1,4 @@
-import PageTitle from "@/components/base/page-title";
+import PageTitle from "@/components/base/header/page-title";
 import {Home} from "lucide-react";
 
 function HomePage() {

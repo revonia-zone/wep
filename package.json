@@ -6,6 +6,7 @@
     "@chainsafe/libp2p-gossipsub": "^10.1.0",
     "@chainsafe/libp2p-noise": "^13.0.2",
     "@chainsafe/libp2p-yamux": "^5.0.0",
+    "@editorjs/editorjs": "^2.28.2",
     "@hookform/resolvers": "^3.3.2",
     "@libp2p/bootstrap": "^9.0.9",
     "@libp2p/kad-dht": "^10.0.11",

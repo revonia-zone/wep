@@ -8,7 +8,7 @@ export default function NetworkCard() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full h-10 px-2 py-1">
+    <div className="w-full h-10 py-1">
       <Button
         variant="ghost"
         className="w-full h-full py-1 text-xs"
