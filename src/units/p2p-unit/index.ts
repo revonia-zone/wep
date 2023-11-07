@@ -1,25 +1,24 @@
-import {createLibp2p, Libp2p} from "libp2p";
+import {createLibp2p} from "libp2p";
 import {webSockets} from "@libp2p/websockets";
-import * as filters from "@libp2p/websockets/filters";
 import {webRTC} from "@libp2p/webrtc";
 import {circuitRelayTransport} from "libp2p/circuit-relay";
 import {noise} from "@chainsafe/libp2p-noise";
 import {mplex} from "@libp2p/mplex";
 import {yamux} from "@chainsafe/libp2p-yamux";
-import {bootstrap} from "@libp2p/bootstrap";
 import {identifyService} from "libp2p/identify";
 import {pingService} from "libp2p/ping";
 import {kadDHT} from "@libp2p/kad-dht";
 import {gossipsub} from "@chainsafe/libp2p-gossipsub";
-import {AuthUnit} from "./auth-unit";
-import {DataUnit} from "./data-unit";
+import {AuthUnit} from "../auth-unit";
+import {DataUnit} from "../data-unit";
 import {injectable, singleton} from "tsyringe";
-import {EventUnit} from "./event-unit";
+import {EventUnit} from "../event-unit";
 import {PeerId} from "@libp2p/interface/peer-id";
+import {dnsaddrBootstrap} from "@/units/p2p-unit/dnsaddr-bootstrap";
 
 type P2pNodeWithService = Awaited<ReturnType<typeof createP2pNode>>
 
-export async function createP2pNode(peerId: PeerId, bootstrapMultiaddrs: string[]) {
+export async function createP2pNode(peerId: PeerId) {
   const node = await createLibp2p({
     peerId,
     start: false,
@@ -27,7 +26,7 @@ export async function createP2pNode(peerId: PeerId, bootstrapMultiaddrs: string[
       listen: [
         // create listeners for incoming WebRTC connection attempts on on all
         // available Circuit Relay connections
-        '/webrtc'
+        '/webrtc',
       ]
     },
     transports: [
@@ -45,8 +44,11 @@ export async function createP2pNode(peerId: PeerId, bootstrapMultiaddrs: string[
     connectionEncryption: [noise()],
     streamMuxers: [mplex(), yamux()],
     peerDiscovery: [
-      bootstrap({
-        list: bootstrapMultiaddrs, // provide array of multiaddrs
+      dnsaddrBootstrap({
+        list: [
+          '/dnsaddr/bootstrap.libp2p.io',
+          '/dnsaddr/bootstrap.libmemo.app',
+        ]
       })
     ],
     services: {
@@ -63,15 +65,6 @@ export async function createP2pNode(peerId: PeerId, bootstrapMultiaddrs: string[
 @injectable()
 @singleton()
 export class P2pUnit {
-
-  bootstrapMultiaddrs = [
-    '/dns4/local.wep-server.dev/tcp/443/wss/p2p/12D3KooWEEkMYYgRta9NGqvUS6xd94ufwqzmJLp8LhmThQq6m86C'
-    // '/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb',
-    // '/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN',
-    // '/dnsaddr/bootstrap.libp2p.io/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa',
-    // '/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt',
-  ]
-
   private _node: P2pNodeWithService | null = null
 
   get node() {
@@ -96,7 +89,7 @@ export class P2pUnit {
       return
     }
 
-    const node = await createP2pNode(user.peerId, this.bootstrapMultiaddrs)
+    const node = await createP2pNode(user.peerId)
     this._node = node
 
     // node.addEventListener('peer:discovery', (evt) => {
