@@ -5,6 +5,8 @@ import {EventUnit} from "@/units/event-unit";
 import {RouteObject} from "react-router-dom";
 
 export interface ViewSidebarItem {
+  group: 'main' | 'app' | string
+  groupLabel?: string
   icon: LucideIcon
   label: string
   command: string | (() => void)

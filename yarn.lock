@@ -1145,7 +1145,7 @@
   resolved "https://repo.huaweicloud.com/repository/npm/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.16.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.23.1", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.11.0", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.16.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.23.1", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.23.2"
   resolved "https://repo.huaweicloud.com/repository/npm/@babel/runtime/-/runtime-7.23.2.tgz#062b0ac103261d68a966c4c7baf2ae3e62ec3885"
   integrity sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==
@@ -3056,6 +3056,11 @@
   version "0.0.29"
   resolved "https://repo.huaweicloud.com/repository/npm/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
+
+"@types/lodash@^4.14.200":
+  version "4.14.200"
+  resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.200.tgz#435b6035c7eba9cdf1e039af8212c9e9281e7149"
+  integrity sha512-YI/M/4HRImtNf3pJgbF+W6FrXovqj+T+/HpENLTooK9PnkacBsDpeP3IpHab40CClUfhNmdM2WTNP2sa2dni5Q==
 
 "@types/mime@*":
   version "3.0.3"
@@ -8518,6 +8523,11 @@ memfs@^3.1.2, memfs@^3.4.3:
   dependencies:
     fs-monkey "^1.0.4"
 
+"memoize-one@>=3.1.1 <6":
+  version "5.2.1"
+  resolved "https://registry.npmmirror.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
+  integrity sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==
+
 merge-descriptors@1.0.1:
   version "1.0.1"
   resolved "https://repo.huaweicloud.com/repository/npm/merge-descriptors/-/merge-descriptors-1.0.1.tgz#b00aaa556dd8b44568150ec9d1b953f3f90cbb61"
@@ -10281,6 +10291,21 @@ react-style-singleton@^2.2.1:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^2.0.0"
+
+react-vtree@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npmmirror.com/react-vtree/-/react-vtree-2.0.4.tgz#340e64255f5f4ec6f4c35dc44a7036f7fcd98bc5"
+  integrity sha512-UOld0VqyAZrryF06K753X4bcEVN6/wW831exvVlMZeZAVHk9KXnlHs4rpqDAeoiBgUwJqoW/rtn0hwsokRRxPA==
+  dependencies:
+    "@babel/runtime" "^7.11.0"
+
+react-window@^1.8.9:
+  version "1.8.9"
+  resolved "https://registry.npmmirror.com/react-window/-/react-window-1.8.9.tgz#24bc346be73d0468cdf91998aac94e32bc7fa6a8"
+  integrity sha512-+Eqx/fj1Aa5WnhRfj9dJg4VYATGwIUP2ItwItiJ6zboKWA6EX3lYDAXfGF2hyNqplEprhbtjbipiADEcwQ823Q==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one ">=3.1.1 <6"
 
 react@^18.2.0:
   version "18.2.0"

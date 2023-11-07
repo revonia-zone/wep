@@ -20,7 +20,8 @@ export default class EverythingApp implements AppInstance {
         {
           icon: Search,
           label: 'Everything',
-          command: () => useEverythingStore.getState().summon()
+          command: () => useEverythingStore.getState().summon(),
+          group: 'main'
         }
       ],
       rootComponents: [

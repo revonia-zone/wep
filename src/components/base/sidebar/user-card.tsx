@@ -8,7 +8,7 @@ export default function UserCard() {
   const navigate = useNavigate();
 
   return (
-    <div className="py-1 h-12 flex bg-white">
+    <div className="py-1 h-12 flex bg-white px-2">
       <Button variant="ghost" className="w-full h-full py-1" onClick={() => navigate('/user')}>
         <div className="flex w-full">
           <UserAvatar className="w-8 h-8" />
