@@ -1,7 +1,10 @@
 import {Multiaddr} from "@multiformats/multiaddr";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
+import {useNetworkStore} from "@/stores/network-store";
 
-export default function MultiaddrTable({ multiaddrs, className }: { multiaddrs: Multiaddr[], className?: string }) {
+export default function MultiaddrTable({ className }: { className?: string }) {
+  const multiaddrs = useNetworkStore((s) => s.multiaddrs)
+
   return (
     <Table className={className}>
       <TableHeader>

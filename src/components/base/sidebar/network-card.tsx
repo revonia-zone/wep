@@ -4,7 +4,7 @@ import {useNetworkStore} from "@/stores/network-store";
 import {useNavigate} from "react-router-dom";
 
 export default function NetworkCard() {
-  const {status, peers, multiaddrs} = useNetworkStore()
+  const {status, peerMap, multiaddrs} = useNetworkStore()
   const navigate = useNavigate();
 
   return (
@@ -25,7 +25,7 @@ export default function NetworkCard() {
           <span>
             <Waypoints className="inline-block" size={16} strokeWidth={1.5}/>
             {' '}
-            {peers.length}
+            {Object.keys(peerMap).length}
           </span>
           <span>
             <Router className="inline-block" size={16} strokeWidth={1.5}/>

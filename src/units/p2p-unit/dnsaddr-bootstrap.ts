@@ -6,7 +6,7 @@ import type { PeerDiscovery, PeerDiscoveryEvents } from '@libp2p/interface/peer-
 import type { PeerInfo } from '@libp2p/interface/peer-info'
 import type { PeerStore } from '@libp2p/interface/peer-store'
 import type { Startable } from '@libp2p/interface/startable'
-import {DNSADDR} from "@multiformats/mafmt";
+import {DNSADDR, P2P} from "@multiformats/mafmt";
 import {dnsaddrResolver} from "@multiformats/multiaddr/resolvers";
 
 const log = logger('libmemo:dnsaddr-bootstrap')
@@ -58,6 +58,7 @@ class DnsaddrBootstrap extends TypedEventEmitter<PeerDiscoveryEvents> implements
   private readonly timeout: number
   private readonly components: BootstrapComponents
   private readonly _init: BootstrapInit
+  private readonly p2pList: string[] = []
   // readonly [peerDiscovery] = this
   // readonly [Symbol.toStringTag] = '@libmemo/dnsaddr-bootstrap'
 
@@ -72,12 +73,13 @@ class DnsaddrBootstrap extends TypedEventEmitter<PeerDiscoveryEvents> implements
     this.dnsaddrList = []
 
     for (const candidate of options.list) {
-      if (!DNSADDR.matches(candidate)) {
-        log.error('Invalid multiaddr')
-        continue
+      if (P2P.matches(candidate)) {
+        this.p2pList.push(candidate)
+      } else if (DNSADDR.matches(candidate)) {
+        this.dnsaddrList.push(candidate)
+      } else {
+        log.error('Invalid multiaddr', candidate)
       }
-
-      this.dnsaddrList.push(candidate)
     }
 
     this._init = options

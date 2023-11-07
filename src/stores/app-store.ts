@@ -1,11 +1,11 @@
 import { create } from 'zustand'
 import {ComponentType} from "react";
-import {produce} from "immer";
+import {produce, enableMapSet} from "immer";
 import {AppInstance, ViewSidebarItem} from "@/units/app-manage-unit";
 import {RouteObject} from "react-router-dom";
 
 interface AppState {
-  apps: AppInstance[]
+  apps: Set<AppInstance>
   appRoutes: RouteObject[]
   addApp: (instance: AppInstance) => void
   removeApp: (instance: AppInstance) => void
@@ -19,7 +19,7 @@ interface AppState {
 }
 
 export const useAppStore = create<AppState>((set) => ({
-  apps: [],
+  apps: new Set,
   appRoutes: [],
   showRequireRefreshDialog: false,
   bootstrapped: false,
@@ -30,17 +30,20 @@ export const useAppStore = create<AppState>((set) => ({
   },
   addApp: (instance) => {
     set((state) => produce(state, (draft) => {
-      draft.apps.push(instance)
+      if (draft.apps.has(instance)) {
+        return
+      }
+      draft.apps.add(instance)
       if (instance.provides.view?.sidebar?.length) {
-        draft.view.sidebar.push(...state.view.sidebar, ...instance.provides.view.sidebar)
+        draft.view.sidebar.push(...instance.provides.view.sidebar)
       }
 
       if (instance.provides.view?.rootComponents?.length) {
-        draft.view.rootComponents.push(...state.view.rootComponents, ...instance.provides.view.rootComponents)
+        draft.view.rootComponents.push(...instance.provides.view.rootComponents)
       }
 
       if (instance.provides.routes?.length) {
-        draft.appRoutes.push(...state.appRoutes, ...instance.provides.routes)
+        draft.appRoutes.push(...instance.provides.routes)
         if (state.bootstrapped) {
           draft.showRequireRefreshDialog = true
         }
@@ -49,10 +52,11 @@ export const useAppStore = create<AppState>((set) => ({
   },
   removeApp: (instance) => {
     set((state) => produce(state, (draft) => {
-      const idx = draft.apps.findIndex((app) => app.appId === instance.appId)
-      if (idx !== -1) {
-        draft.apps.splice(idx, 1)
+      if (!draft.apps.has(instance)) {
+        return
       }
+
+      draft.apps.delete(instance)
       if (instance.provides.view?.sidebar) {
         instance.provides.view.sidebar.forEach((item) => {
           const idx = draft.view.sidebar.findIndex((i) => i.command === item.command)

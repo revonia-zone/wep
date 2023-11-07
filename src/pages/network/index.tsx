@@ -1,6 +1,5 @@
 import PageTitle from "@/components/base/header/page-title";
 import {Network} from "lucide-react";
-import {useNetworkStore} from "@/stores/network-store";
 import FindPeerTool from "./find-peer-tool";
 import {Label} from "@/components/ui/label";
 import {container} from "tsyringe";
@@ -10,8 +9,6 @@ import PeerTable from "./peer-table";
 import MultiaddrTable from "./multiaddr-table";
 
 export default function NetworkPage() {
-  const peers = useNetworkStore((s) => s.peers)
-  const multiaddrs = useNetworkStore((s) => s.multiaddrs)
   const p2p = container.resolve(P2pUnit)
 
   return (
@@ -29,9 +26,9 @@ export default function NetworkPage() {
       </div>
 
       <h1 className="font-bold mb-4 text-xl">Connected peers</h1>
-      <PeerTable className="mb-8" peers={peers} />
-      <h1 className="font-bold mb-4 text-xl">Self multiaddrs</h1>
-      <MultiaddrTable className="mb-8" multiaddrs={multiaddrs} />
+      <PeerTable className="mb-8" />
+      <h1 className="font-bold mb-4 text-xl">listen multiaddrs</h1>
+      <MultiaddrTable className="mb-8" />
       <h1 className="font-bold mb-4 text-xl">Tools</h1>
       <div className="flex gap-4">
         <FindPeerTool className="w-1/2" />

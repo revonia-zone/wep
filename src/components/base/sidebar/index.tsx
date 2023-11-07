@@ -2,11 +2,13 @@ import UserCard from "./user-card";
 import PageTreeViewer from "./page-tree-viewer";
 import NetworkCard from "./network-card";
 import {Button} from "@/components/ui/button";
-import {Blocks, Settings} from "lucide-react";
+import {Blocks, File, FilePlus, Settings} from "lucide-react";
 import {useAppStore} from "@/stores/app-store";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {groupBy} from "lodash";
 import {useMemo} from "react";
+import {randomBytes} from "crypto";
+import {base58btc} from "multiformats/bases/base58";
 
 export default function Sidebar() {
   const sidebarItems = useAppStore((state) => state.view.sidebar)
@@ -29,6 +31,8 @@ export default function Sidebar() {
     groups.sort((a, b) => a.label.localeCompare(b.label))
     return groups
   }, [rest])
+
+  const navigate = useNavigate()
 
   return (
     <div className="w-64 border-r border-r-gray-100 flex flex-col">
@@ -91,8 +95,24 @@ export default function Sidebar() {
           )
         })}
 
-        <label className="font-medium text-xs text-gray-500 px-2 mb-2">MEMOS</label>
-        <PageTreeViewer/>
+        <div>
+          <label className="font-medium text-xs text-gray-500 px-2 mb-2">MEMOS</label>
+
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full py-1 justify-start px-4 font-normal"
+            onClick={() => {
+              const byte = randomBytes(32)
+              navigate(`/memo/${base58btc.encode(byte)}/edit`)
+            }}
+          >
+            <FilePlus className="inline-block mr-2" size={16} strokeWidth={1.5}/>
+            New memo
+          </Button>
+          {/*<PageTreeViewer/>*/}
+        </div>
+
         {
           apps?.length && (
             <div>

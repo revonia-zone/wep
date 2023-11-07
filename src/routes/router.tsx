@@ -8,6 +8,7 @@ import NetworkPage from "@/pages/network";
 import UserPage from "@/pages/user";
 import AppsPage from "@/pages/apps";
 import SettingsPage from "@/pages/settings";
+import MemoEditPage from "@/pages/memo/edit";
 
 export function createRouter(routes: RouteObject[]) {
   return createBrowserRouter([
@@ -23,6 +24,10 @@ export function createRouter(routes: RouteObject[]) {
         {
           path: "memo/:memoId",
           element: <MemoPage />,
+        },
+        {
+          path: "memo/:memoId/edit",
+          element: <MemoEditPage />,
         },
         {
           path: 'network',

@@ -53,6 +53,12 @@ export default function FindPeerDialog({findProps, onClose}: Props) {
               case EventTypes.QUERY_ERROR:
                 setLines((lines) => [...lines, `Query error: ${event.error}`])
                 break
+              case EventTypes.PEER_RESPONSE:
+                setLines((lines) => [
+                  ...lines,
+                  `Response ${event.closer.length} closer peer(s) from ${event.from.toString()}`,
+                ])
+                break;
               case EventTypes.FINAL_PEER:
                 setLines((lines) => [
                   ...lines,

@@ -7,6 +7,8 @@ import {RouterProvider} from "react-router-dom";
 import {container} from "tsyringe";
 import {BootstrapUnit} from "@/units/bootstrap-unit";
 import {useAppStore} from "@/stores/app-store";
+import {enableMapSet} from "immer";
+enableMapSet()
 
 const bootstrap = container.resolve(BootstrapUnit)
 
