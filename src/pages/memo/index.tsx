@@ -1,4 +1,4 @@
-export default function PPage() {
+export default function MemoPage() {
   return (
     <div>
       <h1>P</h1>

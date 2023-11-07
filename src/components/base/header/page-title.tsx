@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {createPortal} from "react-dom";
-import {usePageStore} from "@/stores/page-store";
+import {useViewStore} from "@/stores/view-store";
 import {LucideIcon} from "lucide-react";
 
 interface Props {
@@ -9,8 +9,8 @@ interface Props {
 }
 
 export default function PageTitle({ text, icon: Icon }: Props) {
-  const titleEl = usePageStore((s) => s.titleEl)
-  const setTitleText = usePageStore((s) => s.setTitleText)
+  const titleEl = useViewStore((s) => s.titleEl)
+  const setTitleText = useViewStore((s) => s.setTitleText)
 
   useEffect(() => {
     document.title = text;

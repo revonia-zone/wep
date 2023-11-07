@@ -1,10 +1,10 @@
 import {useEffect, useRef} from "react";
-import {usePageStore} from "@/stores/page-store";
+import {useViewStore} from "@/stores/view-store";
 
 export default function Header() {
   const titleRef = useRef<HTMLDivElement | null>(null)
 
-  const setTitleEl = usePageStore((s) => s.setTitleEl)
+  const setTitleEl = useViewStore((s) => s.setTitleEl)
 
   useEffect(() => {
     setTitleEl(titleRef.current)

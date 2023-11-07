@@ -3,7 +3,7 @@ import Root from "../pages/root";
 import HomePage from "../pages/home";
 import React from "react";
 import ErrorPage from "../pages/error";
-import PPage from "@/pages/p";
+import MemoPage from "@/pages/memo";
 import NetworkPage from "@/pages/network";
 import UserPage from "@/pages/user";
 import AppsPage from "@/pages/apps";
@@ -21,8 +21,8 @@ export function createRouter(routes: RouteObject[]) {
           element: <UserPage />,
         },
         {
-          path: "p/:pageId",
-          element: <PPage />,
+          path: "memo/:memoId",
+          element: <MemoPage />,
         },
         {
           path: 'network',

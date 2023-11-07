@@ -1,13 +1,13 @@
 import { create, createStore, useStore } from 'zustand'
 
-interface PageState {
+interface ViewState {
   titleEl: HTMLElement | null
   titleText: string
   setTitleText: (titleText: string) => void
   setTitleEl: (titleEl: HTMLElement | null) => void
 }
 
-export const usePageStore = create<PageState>((set) => ({
+export const useViewStore = create<ViewState>((set) => ({
   titleEl: null,
   titleText: '',
   setTitleText: (titleText) => set((state) => ({ ...state, titleText })),
