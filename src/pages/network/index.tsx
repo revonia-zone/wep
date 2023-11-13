@@ -27,7 +27,7 @@ export default function NetworkPage() {
 
       <h1 className="font-bold mb-4 text-xl">Connected peers</h1>
       <PeerTable className="mb-8" />
-      <h1 className="font-bold mb-4 text-xl">listen multiaddrs</h1>
+      <h1 className="font-bold mb-4 text-xl">Listen multiaddrs</h1>
       <MultiaddrTable className="mb-8" />
       <h1 className="font-bold mb-4 text-xl">Tools</h1>
       <div className="flex gap-4">

@@ -45,7 +45,7 @@ async function test() {
       "extensions": {
         // @ts-ignore
         largeBlob: {
-          support: "preferred"
+          support: "required"
         },
         "credProps": true
       }

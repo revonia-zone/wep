@@ -1,6 +1,6 @@
 import {createLibp2p} from "libp2p";
 import {webSockets} from "@libp2p/websockets";
-import {webRTC} from "@libp2p/webrtc";
+import {webRTCDirect} from "@libp2p/webrtc";
 import {circuitRelayTransport} from "libp2p/circuit-relay";
 import {noise} from "@chainsafe/libp2p-noise";
 import {mplex} from "@libp2p/mplex";
@@ -15,6 +15,8 @@ import {injectable, singleton} from "tsyringe";
 import {EventUnit} from "../event-unit";
 import {PeerId} from "@libp2p/interface/peer-id";
 import {dnsaddrBootstrap} from "@/units/p2p-unit/dnsaddr-bootstrap";
+import {Multiaddr} from "@multiformats/multiaddr";
+import {webRTCFix} from "@/units/p2p-unit/webrtc-fix";
 
 type P2pNodeWithService = Awaited<ReturnType<typeof createP2pNode>>
 
@@ -23,23 +25,34 @@ export async function createP2pNode(peerId: PeerId) {
     peerId,
     start: false,
     addresses: {
-      listen: [
-        // create listeners for incoming WebRTC connection attempts on on all
-        // available Circuit Relay connections
-        '/webrtc',
-      ]
+      announceFilter: (addrs: Multiaddr[]) => {
+        return addrs.filter((addr) => addr.protoNames().includes('webrtc'))
+      },
+      listen: [`/webrtc`]
     },
     transports: [
-      webSockets({
-        // filter: filters.all
+      webSockets(),
+      webRTCDirect(),
+      webRTCFix({
+        rtcConfiguration: {
+          iceServers: [
+            { urls: "stun:stun.stunprotocol.org:3478" },
+            { urls: "stun:freestun.net:3479" },
+            { urls: "stun:stun.l.google.com:19302" },
+            { urls: "stun:stun1.l.google.com:19302" },
+            {
+              urls: "turns:freestun.net:5350",
+              username: "free",
+              credential: "free"
+            }
+          ]
+        }
       }),
-      webRTC(),
       circuitRelayTransport({
         discoverRelays: 10
       })
     ],
     connectionGater: {
-      // denyDialMultiaddr: () => false,
     },
     connectionEncryption: [noise()],
     streamMuxers: [mplex(), yamux()],

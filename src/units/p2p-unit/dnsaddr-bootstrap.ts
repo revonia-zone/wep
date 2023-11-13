@@ -108,39 +108,40 @@ class DnsaddrBootstrap extends TypedEventEmitter<PeerDiscoveryEvents> implements
     }
 
     this.timer = setTimeout(() => {
-      this.discoverByDnsaddr()
+      for (const candidate of this.dnsaddrList) {
+        this.resolveDnsaddr(candidate).then((result) => {
+          this.discoverByPeers(result)
+        })
+      }
+      this.discoverByPeers(this.p2pList)
     }, this.timeout)
   }
 
-  async discoverByDnsaddr (): Promise<void> {
-    for (const candidate of this.dnsaddrList) {
-      this.resolveDnsaddr(candidate).then((result) => {
-        const list: PeerInfo[] = []
+  discoverByPeers(peerIds: string[]): void {
+    const list: PeerInfo[] = []
 
-        for (const addr of result) {
-          const ma = multiaddr(addr)
-          const peerIdStr = ma.getPeerId()
-          if (peerIdStr == null) {
-            log.error('Invalid bootstrap multiaddr without peer id')
-            continue
-          }
+    for (const addr of peerIds) {
+      const ma = multiaddr(addr)
+      const peerIdStr = ma.getPeerId()
+      if (peerIdStr == null) {
+        log.error('Invalid bootstrap multiaddr without peer id')
+        continue
+      }
 
-          const peerData: PeerInfo = {
-            id: peerIdFromString(peerIdStr),
-            multiaddrs: [ma],
-            protocols: []
-          }
-          list.push(peerData)
-        }
+      const peerData: PeerInfo = {
+        id: peerIdFromString(peerIdStr),
+        multiaddrs: [ma],
+        protocols: []
+      }
+      list.push(peerData)
+    }
 
-        if (list.length) {
-          log('Starting bootstrap node discovery, discovering peers after %s ms', this.timeout)
-          this._discoverBootstrapPeers(list)
-            .catch(err => {
-              log.error(err)
-            })
-        }
-      })
+    if (list.length) {
+      log('Starting bootstrap node discovery, discovering peers after %s ms', this.timeout)
+      this._discoverBootstrapPeers(list)
+        .catch(err => {
+          log.error(err)
+        })
     }
   }
 
