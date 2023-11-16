@@ -1408,11 +1408,6 @@
   resolved "https://repo.huaweicloud.com/repository/npm/@eslint/js/-/js-8.52.0.tgz#78fe5f117840f69dc4a353adf9b9cd926353378c"
   integrity sha512-mjZVbpaeMZludF2fsWLD0Z9gCref1Tk4i9+wddjRvpUNqqcndPkBD09N/Mapey0b3jaXbLm2kICwFv2E64QinA==
 
-"@fastify/busboy@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npmmirror.com/@fastify/busboy/-/busboy-2.0.0.tgz#f22824caff3ae506b18207bad4126dbc6ccdb6b8"
-  integrity sha512-JUFJad5lv7jxj926GPgymrWQxxjPYuJNiNjNMzqT+HiuP6Vl3dk5xzG+8sTX96np0ZAluvaMzPsjhHZ5rNuNQQ==
-
 "@floating-ui/core@^1.4.2":
   version "1.5.0"
   resolved "https://registry.npmmirror.com/@floating-ui/core/-/core-1.5.0.tgz#5c05c60d5ae2d05101c3021c1a2a350ddc027f8c"
@@ -1772,12 +1767,12 @@
     "@multiformats/mafmt" "^12.1.2"
     "@multiformats/multiaddr" "^12.1.5"
 
-"@libp2p/crypto@^2.0.0", "@libp2p/crypto@^2.0.6":
-  version "2.0.6"
-  resolved "https://registry.npmmirror.com/@libp2p/crypto/-/crypto-2.0.6.tgz#df11673ad79a1875f2e7804e61d5697252f662a0"
-  integrity sha512-SK2nOsXsM/9Urtipw1C+KJ2e2PU+Z0AxBWiQti9oC+2mFXOy7erry2n2wH3aCTpajQX6D+Erm39yaS55w4AVLw==
+"@libp2p/crypto@^2.0.0", "@libp2p/crypto@^2.0.7", "@libp2p/crypto@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.npmmirror.com/@libp2p/crypto/-/crypto-2.0.8.tgz#efa309944d2bd00427ae73d1ff2df72aaba38b0f"
+  integrity sha512-8e5fh6bsJNpSjhrggtlm8QF+BERjelJswIjRS69aKgxp24R4z2kDM4pRYPkfQjXJDLNDtqWtKNmePgX23+QJsA==
   dependencies:
-    "@libp2p/interface" "^0.1.4"
+    "@libp2p/interface" "^0.1.6"
     "@noble/curves" "^1.1.0"
     "@noble/hashes" "^1.3.1"
     multiformats "^12.0.1"
@@ -1786,48 +1781,20 @@
     uint8arraylist "^2.4.3"
     uint8arrays "^4.0.6"
 
-"@libp2p/crypto@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.npmmirror.com/@libp2p/crypto/-/crypto-2.0.7.tgz#f57bce254a9e64b6c8ec2a556113cd5de69ef0f1"
-  integrity sha512-zGw66+wnJIIDFEwBq6jSIRPeNFFZtnj1k5cVZyYRiSqaBP0p+7d91AlKL1j4eVERgapsYC99smi/ie5DL2PH4A==
+"@libp2p/interface-internal@^0.1.0", "@libp2p/interface-internal@^0.1.7", "@libp2p/interface-internal@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.npmmirror.com/@libp2p/interface-internal/-/interface-internal-0.1.9.tgz#d5f93c94e981374dc52fd737e8f6a65fa176fa37"
+  integrity sha512-0HoY3ojG773VqE/m5vw9XtpKzuTqlCNqbOcwh2JvQvrLIiQgwu1zbn6t+T6cKK49eTBGfUqj3uWN7YQgX8rdGA==
   dependencies:
-    "@libp2p/interface" "^0.1.5"
-    "@noble/curves" "^1.1.0"
-    "@noble/hashes" "^1.3.1"
-    multiformats "^12.0.1"
-    node-forge "^1.1.0"
-    protons-runtime "^5.0.0"
-    uint8arraylist "^2.4.3"
-    uint8arrays "^4.0.6"
-
-"@libp2p/interface-internal@^0.1.0", "@libp2p/interface-internal@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.npmmirror.com/@libp2p/interface-internal/-/interface-internal-0.1.7.tgz#082beca698467bfdb588c59a5cb677029717f13e"
-  integrity sha512-YAZmGcegFucATM6SYRlk2L8uYYsPf6Hf0r1NFz3I+Xv4M5+2L271U1WulpFFegzMzS04FZ7swvWTZODQmMl3lA==
-  dependencies:
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/peer-collections" "^4.0.6"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/peer-collections" "^4.0.8"
     "@multiformats/multiaddr" "^12.1.5"
     uint8arraylist "^2.4.3"
 
-"@libp2p/interface@^0.1.0", "@libp2p/interface@^0.1.1", "@libp2p/interface@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.npmmirror.com/@libp2p/interface/-/interface-0.1.4.tgz#fc87a71e5832dfc08a4c96cb17a8d97d7cb0a170"
-  integrity sha512-Pk8mzit/w7PbTh28n77RDLTU1CQBBzLygiNC07MvcEjaIwqXdNPN3Vuzr/5qiF6aDsbM9fA1W5dWoCif9xBdxg==
-  dependencies:
-    "@multiformats/multiaddr" "^12.1.5"
-    abortable-iterator "^5.0.1"
-    it-pushable "^3.2.0"
-    it-stream-types "^2.0.1"
-    multiformats "^12.0.1"
-    p-defer "^4.0.0"
-    race-signal "^1.0.0"
-    uint8arraylist "^2.4.3"
-
-"@libp2p/interface@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.npmmirror.com/@libp2p/interface/-/interface-0.1.5.tgz#98579c2ba0c6a47bf3773e8a07bb8aa4010e92b4"
-  integrity sha512-1sPZ0iZifINtw8RAZ6flML7InRXNkZJF/MpKmAwIFXhEFDtRvbwMSs/kihPxLgsvbBCfJiTqUuy2ki8a4p06Vg==
+"@libp2p/interface@^0.1.0", "@libp2p/interface@^0.1.1", "@libp2p/interface@^0.1.4", "@libp2p/interface@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npmmirror.com/@libp2p/interface/-/interface-0.1.6.tgz#1328cf6086f02c499183489ccb143fe9c159e871"
+  integrity sha512-Lzc5cS/hXuoXhuAbVIxJIHLCYmfPcbU0vVgrpMoiP1Qb2Q3ETU4A46GB8s8mWXgSU6tr9RcqerUqzFYD6+OAag==
   dependencies:
     "@multiformats/multiaddr" "^12.1.5"
     abortable-iterator "^5.0.1"
@@ -1839,22 +1806,21 @@
     uint8arraylist "^2.4.3"
 
 "@libp2p/kad-dht@^10.0.11":
-  version "10.0.11"
-  resolved "https://registry.npmmirror.com/@libp2p/kad-dht/-/kad-dht-10.0.11.tgz#ccebc7db82f27f0a5295bad51a030934616ee78b"
-  integrity sha512-B03cfR3qiK3i2Gym8JUq3VjzPibaBsDhF4zvrw7M5q1x7gzab+qq8ee8tDJKA5FBiV2H7EwPkJe+7rC5aBXztw==
+  version "10.0.15"
+  resolved "https://registry.npmmirror.com/@libp2p/kad-dht/-/kad-dht-10.0.15.tgz#62fae485664d3e2514a6aa376e391e7db000f7a9"
+  integrity sha512-S4pQY8t4lXBlicBREThtOHnLn79e07sVgKZPa9SmJ4hC1+i0HFD8XLzrHm3cnKSO/4RhoaF5YdlnZMMjbb7q0w==
   dependencies:
-    "@libp2p/crypto" "^2.0.6"
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/interface-internal" "^0.1.7"
-    "@libp2p/logger" "^3.0.4"
-    "@libp2p/peer-collections" "^4.0.6"
-    "@libp2p/peer-id" "^3.0.4"
+    "@libp2p/crypto" "^2.0.8"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/interface-internal" "^0.1.9"
+    "@libp2p/logger" "^3.1.0"
+    "@libp2p/peer-collections" "^4.0.8"
+    "@libp2p/peer-id" "^3.0.6"
     "@multiformats/multiaddr" "^12.1.5"
-    "@types/sinon" "^10.0.15"
+    "@types/sinon" "^17.0.0"
     abortable-iterator "^5.0.1"
     any-signal "^4.1.1"
     datastore-core "^9.0.1"
-    events "^3.3.0"
     hashlru "^2.3.0"
     interface-datastore "^8.2.0"
     it-all "^3.0.2"
@@ -1866,6 +1832,7 @@
     it-merge "^3.0.0"
     it-parallel "^3.0.0"
     it-pipe "^3.0.1"
+    it-pushable "^3.2.1"
     it-stream-types "^2.0.1"
     it-take "^3.0.1"
     multiformats "^12.0.1"
@@ -1879,26 +1846,26 @@
     uint8arraylist "^2.4.3"
     uint8arrays "^4.0.6"
 
-"@libp2p/keychain@^3.0.6":
-  version "3.0.6"
-  resolved "https://registry.npmmirror.com/@libp2p/keychain/-/keychain-3.0.6.tgz#1bffa65d2dd76960d65d2d18b7d79ee1e15a84ba"
-  integrity sha512-OuuBqU/vn+UNQQufGcjoZsafiJTSPxtCxotgz7educKSyRoGoHQNIlLNylPkspv4JT7CnP/iopQjWnIPYCX7RA==
+"@libp2p/keychain@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.npmmirror.com/@libp2p/keychain/-/keychain-3.0.8.tgz#07459fc6147f38a87440d95fb05200fff7791012"
+  integrity sha512-+WmW9bN9WE0uKqTG3DVk+zsd9Np63lLS+uYRhncwCGTvg0HKXq1t+i4Xd8KbZvUv7UVakE8aae1oMezW3nS+2g==
   dependencies:
-    "@libp2p/crypto" "^2.0.6"
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/logger" "^3.0.4"
-    "@libp2p/peer-id" "^3.0.4"
+    "@libp2p/crypto" "^2.0.8"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/logger" "^3.1.0"
+    "@libp2p/peer-id" "^3.0.6"
     interface-datastore "^8.2.0"
     merge-options "^3.0.4"
     sanitize-filename "^1.6.3"
     uint8arrays "^4.0.6"
 
-"@libp2p/logger@^3.0.0", "@libp2p/logger@^3.0.4":
-  version "3.0.4"
-  resolved "https://registry.npmmirror.com/@libp2p/logger/-/logger-3.0.4.tgz#8435482f92abc23ecbfe5f0b5213cba4416912c6"
-  integrity sha512-MF42c7SOJIx5YmHhIsFaSYfaC266YYmMbAJHjjH8Zl5unFsqW82M+Xr7sGVj9/WXrWAd37ts8xJaQrkIXc3OZQ==
+"@libp2p/logger@^3.0.0", "@libp2p/logger@^3.0.4", "@libp2p/logger@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.npmmirror.com/@libp2p/logger/-/logger-3.1.0.tgz#ac9adb08f344934e191d7049ce876ac0111449ce"
+  integrity sha512-qJbJBAhxHVsRBtQSOIkSLi0lskUSFjzE+zm0QvoyxzZKSz+mX41mZLbnofPIVOVauoDQ40dXpe7WDUOq8AbiQQ==
   dependencies:
-    "@libp2p/interface" "^0.1.4"
+    "@libp2p/interface" "^0.1.6"
     "@multiformats/multiaddr" "^12.1.5"
     debug "^4.3.4"
     interface-datastore "^8.2.0"
@@ -1921,13 +1888,13 @@
     uint8arraylist "^2.4.3"
     uint8arrays "^4.0.6"
 
-"@libp2p/multistream-select@^4.0.4":
-  version "4.0.4"
-  resolved "https://registry.npmmirror.com/@libp2p/multistream-select/-/multistream-select-4.0.4.tgz#854305dca330e12efb0af834c42bb492a6f0ad92"
-  integrity sha512-U/tAnCOZw2CGTtob3/16WoPaRrK3fimDhrqlu87fObEuu0OhyCkBUxRAciSEQC/dnAKk/9CuPjXaCsLCMVFSOg==
+"@libp2p/multistream-select@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.npmmirror.com/@libp2p/multistream-select/-/multistream-select-4.0.6.tgz#610fc9e917d152b39a26c175c039738c91da4822"
+  integrity sha512-WT3thUOqUpzKjTctLkgezQep0C23uIPyE0J5H7tBBoB+h6Ocp90A7aQWsBZMbszGKcNOeAkIIYE7dZ0J1MdKeg==
   dependencies:
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/logger" "^3.0.4"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/logger" "^3.1.0"
     abortable-iterator "^5.0.1"
     it-first "^3.0.1"
     it-handshake "^4.1.3"
@@ -1941,84 +1908,62 @@
     uint8arraylist "^2.4.3"
     uint8arrays "^4.0.6"
 
-"@libp2p/peer-collections@^4.0.6":
-  version "4.0.6"
-  resolved "https://registry.npmmirror.com/@libp2p/peer-collections/-/peer-collections-4.0.6.tgz#b1bd27a3e7539471b532169aa4575986026ff553"
-  integrity sha512-hbB3c6yiXfwiQIeMlfuKedrGWWgFplFmShbjlIqr9eCLJPUunImTjV6MAOkNcn+B0vX08jM060dmmMyk9F5V9g==
+"@libp2p/peer-collections@^4.0.8":
+  version "4.0.8"
+  resolved "https://registry.npmmirror.com/@libp2p/peer-collections/-/peer-collections-4.0.8.tgz#775abce3433f56ee58486173f3c35583a2abae53"
+  integrity sha512-Tk7W7pgPRH1v1+DmCx+XDqWX/E1Q7t7dNz3gsKZ1smstLwF6P1OhmYgDuVpMUvJiYroM7j7X6CcPZEoVUvNVog==
   dependencies:
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/peer-id" "^3.0.4"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/peer-id" "^3.0.6"
 
-"@libp2p/peer-id-factory@^3.0.6":
+"@libp2p/peer-id-factory@^3.0.7", "@libp2p/peer-id-factory@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.npmmirror.com/@libp2p/peer-id-factory/-/peer-id-factory-3.0.8.tgz#56d9c5f9a9f1adb55e2585fd046c38e88df39989"
+  integrity sha512-T0pOKWwFw01GqpeA03RRztG2qr0Zl2cSdt20d/WQ+BAjyrJNr7PSBTXux3nRGGdmzoUfJTJU6f992PDtq1z/mQ==
+  dependencies:
+    "@libp2p/crypto" "^2.0.8"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/peer-id" "^3.0.6"
+    multiformats "^12.0.1"
+    protons-runtime "^5.0.0"
+    uint8arraylist "^2.4.3"
+    uint8arrays "^4.0.6"
+
+"@libp2p/peer-id@^3.0.0", "@libp2p/peer-id@^3.0.4", "@libp2p/peer-id@^3.0.6":
   version "3.0.6"
-  resolved "https://registry.npmmirror.com/@libp2p/peer-id-factory/-/peer-id-factory-3.0.6.tgz#7a9dcfe3f8e421ab52a4f296464b31ff20a262fc"
-  integrity sha512-MeudUDL7EZ5LQfe5sJk1dF37nIjycZc/k+IFFtZmSEbNf2fbArmgG/MmRl3WaTWLECYitD+O+Wgzk/XzPMLRzg==
+  resolved "https://registry.npmmirror.com/@libp2p/peer-id/-/peer-id-3.0.6.tgz#93b3f240488c0af3d76f64716e2ee032cd2fd2da"
+  integrity sha512-iN1Ia5gH2U1V/GOVRmLHmVY6fblxzrOPUoZrMYjHl/K4s+AiI7ym/527WDeQvhQpD7j3TfDwcAYforD2dLGpLw==
   dependencies:
-    "@libp2p/crypto" "^2.0.6"
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/peer-id" "^3.0.4"
-    multiformats "^12.0.1"
-    protons-runtime "^5.0.0"
-    uint8arraylist "^2.4.3"
-    uint8arrays "^4.0.6"
-
-"@libp2p/peer-id-factory@^3.0.7":
-  version "3.0.7"
-  resolved "https://registry.npmmirror.com/@libp2p/peer-id-factory/-/peer-id-factory-3.0.7.tgz#d08dd91584dd30ea503d4afcfd85984656179840"
-  integrity sha512-WdsgrpJB1o8hp+/dLyXnUhkNLKW/CqLIzHwH4/o6j0Xihhcuxq+VQfVKiq/YbRMnwiqIdfnYxR2GzWivWQU/0Q==
-  dependencies:
-    "@libp2p/crypto" "^2.0.7"
-    "@libp2p/interface" "^0.1.5"
-    "@libp2p/peer-id" "^3.0.5"
-    multiformats "^12.0.1"
-    protons-runtime "^5.0.0"
-    uint8arraylist "^2.4.3"
-    uint8arrays "^4.0.6"
-
-"@libp2p/peer-id@^3.0.0", "@libp2p/peer-id@^3.0.4":
-  version "3.0.4"
-  resolved "https://registry.npmmirror.com/@libp2p/peer-id/-/peer-id-3.0.4.tgz#a666bc8ded62f86441485d29004186b399b8b7dd"
-  integrity sha512-qqg/zlFFVrIV80KhRTeajRwbtolOC2UCQ33w0XcXNxVVseFLxcw1pQ05Yn3x5zjzKIl3M04XxFCNkagWqGXD1A==
-  dependencies:
-    "@libp2p/interface" "^0.1.4"
+    "@libp2p/interface" "^0.1.6"
     multiformats "^12.0.1"
     uint8arrays "^4.0.6"
 
-"@libp2p/peer-id@^3.0.5":
-  version "3.0.5"
-  resolved "https://registry.npmmirror.com/@libp2p/peer-id/-/peer-id-3.0.5.tgz#1d5fd333dfe43a051c356b4be3a078385879e46a"
-  integrity sha512-dnzou2sX3UlBaQj8T/qEk4sI1iY541i/dv/BMI+uaz+iDL8SZ9wv4Qngsd4rSWvKlLWn4QVo4fJsQIMljYyheg==
+"@libp2p/peer-record@^6.0.9":
+  version "6.0.9"
+  resolved "https://registry.npmmirror.com/@libp2p/peer-record/-/peer-record-6.0.9.tgz#48f1a781c19de3b5ee9fb0b494fe50b96d6c4566"
+  integrity sha512-S8SibblcvJWMeOnHfL62nlQuwvgxDb4fB132Fw/2ej4wABqJa94KrllFk+oejJW7rzWIPCKhImcN5YY/ymIkiQ==
   dependencies:
-    "@libp2p/interface" "^0.1.5"
-    multiformats "^12.0.1"
-    uint8arrays "^4.0.6"
-
-"@libp2p/peer-record@^6.0.7":
-  version "6.0.7"
-  resolved "https://registry.npmmirror.com/@libp2p/peer-record/-/peer-record-6.0.7.tgz#9230f136a0ec728d03c4df4af48fda973c311172"
-  integrity sha512-iqBct2euQ2IJNGTY3SiXk1TLDvWObKfsxV3tS1wyAuMr6QeN5w3hg8aY/lyYA8BTiK7R8ClBO/tkpWbCIDEciw==
-  dependencies:
-    "@libp2p/crypto" "^2.0.6"
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/peer-id" "^3.0.4"
-    "@libp2p/utils" "^4.0.5"
+    "@libp2p/crypto" "^2.0.8"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/peer-id" "^3.0.6"
+    "@libp2p/utils" "^4.0.7"
     "@multiformats/multiaddr" "^12.1.5"
     protons-runtime "^5.0.0"
     uint8-varint "^2.0.0"
     uint8arraylist "^2.4.3"
     uint8arrays "^4.0.6"
 
-"@libp2p/peer-store@^9.0.7":
-  version "9.0.7"
-  resolved "https://registry.npmmirror.com/@libp2p/peer-store/-/peer-store-9.0.7.tgz#c67adf18845b6b88465b52451563c29d8efee9f8"
-  integrity sha512-IC+78SIjYozQWnYtTCh1Q1BHyYSTHTmV2zG0po72K0qXrEI2K5FflSoM1u8Pn0UnrcQNekMUUcTrtxg5xU09eA==
+"@libp2p/peer-store@^9.0.9":
+  version "9.0.9"
+  resolved "https://registry.npmmirror.com/@libp2p/peer-store/-/peer-store-9.0.9.tgz#6110f63ee3757ce611825f3a7790e73b26111e68"
+  integrity sha512-8wP45gEozPw7mE5/p+2onAUXEPvb5pWiriV2UqPqrt9FZ7OTRUfD4sMxMxFgCGg8K5pcrXuQPBWyG7OEn4GOGg==
   dependencies:
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/logger" "^3.0.4"
-    "@libp2p/peer-collections" "^4.0.6"
-    "@libp2p/peer-id" "^3.0.4"
-    "@libp2p/peer-id-factory" "^3.0.6"
-    "@libp2p/peer-record" "^6.0.7"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/logger" "^3.1.0"
+    "@libp2p/peer-collections" "^4.0.8"
+    "@libp2p/peer-id" "^3.0.6"
+    "@libp2p/peer-id-factory" "^3.0.8"
+    "@libp2p/peer-record" "^6.0.9"
     "@multiformats/multiaddr" "^12.1.5"
     interface-datastore "^8.2.0"
     it-all "^3.0.2"
@@ -2029,16 +1974,16 @@
     uint8arrays "^4.0.6"
 
 "@libp2p/pubsub@^8.0.0":
-  version "8.0.8"
-  resolved "https://registry.npmmirror.com/@libp2p/pubsub/-/pubsub-8.0.8.tgz#c750c0aa380578112bb81fae3307d5830d4fce60"
-  integrity sha512-6azDsxNPaXtGyojcEtS51C6YWENrxmUL8py7G68iwRPIvfIIoZ5NF/xPy3uBDHXNdJJbScDNYyndAxg/iF9hWg==
+  version "8.0.10"
+  resolved "https://registry.npmmirror.com/@libp2p/pubsub/-/pubsub-8.0.10.tgz#c3760188bf2e1fb3b9e932b71afc8ee9f71a9175"
+  integrity sha512-Bein6ZRg834sxcQeAvzrf8UUwMRZ42EkPJjv+0IXXOTpJE/pU25sP844yI7y+QPCFZ/tYLZ0/VVsf4y4s7diMQ==
   dependencies:
-    "@libp2p/crypto" "^2.0.6"
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/interface-internal" "^0.1.7"
-    "@libp2p/logger" "^3.0.4"
-    "@libp2p/peer-collections" "^4.0.6"
-    "@libp2p/peer-id" "^3.0.4"
+    "@libp2p/crypto" "^2.0.8"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/interface-internal" "^0.1.9"
+    "@libp2p/logger" "^3.1.0"
+    "@libp2p/peer-collections" "^4.0.8"
+    "@libp2p/peer-id" "^3.0.6"
     abortable-iterator "^5.0.1"
     it-length-prefixed "^9.0.1"
     it-pipe "^3.0.1"
@@ -2048,14 +1993,14 @@
     uint8arraylist "^2.4.3"
     uint8arrays "^4.0.6"
 
-"@libp2p/utils@^4.0.5":
-  version "4.0.5"
-  resolved "https://registry.npmmirror.com/@libp2p/utils/-/utils-4.0.5.tgz#6e96a20c20b21e7a15fc615b466259c94b940c5d"
-  integrity sha512-ZlgOGZ1+FX/yhjmtvw0thAz9oFWx4w/ykHKRTt3C8iv0/OWifOOZlOzUnziHBkfcx198lKZms/mN9cNdMKrPVw==
+"@libp2p/utils@^4.0.5", "@libp2p/utils@^4.0.7":
+  version "4.0.7"
+  resolved "https://registry.npmmirror.com/@libp2p/utils/-/utils-4.0.7.tgz#b894147702c1846810a0f9e5c8036ad837502786"
+  integrity sha512-xA6mS4II14870/DmmI3GFRWdNwHeOd2QV3ltatpdVmeEQpdn82jjtCzqn45AChjCugFOskOthXnQiWp+FvdKZg==
   dependencies:
     "@chainsafe/is-ip" "^2.0.2"
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/logger" "^3.0.4"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/logger" "^3.1.0"
     "@multiformats/multiaddr" "^12.1.5"
     "@multiformats/multiaddr-matcher" "^1.0.1"
     is-loopback-addr "^2.0.1"
@@ -2127,9 +2072,9 @@
     "@multiformats/multiaddr" "^12.0.0"
 
 "@multiformats/multiaddr-matcher@^1.0.0", "@multiformats/multiaddr-matcher@^1.0.1":
-  version "1.0.2"
-  resolved "https://registry.npmmirror.com/@multiformats/multiaddr-matcher/-/multiaddr-matcher-1.0.2.tgz#014b8bf34106363b7c2635c01b5627d216fa192f"
-  integrity sha512-YzviFV31TsDbatWhEmkNnpWC82F/Wfc+alaOBT94Lk6KJeKKfzsaLhYPsjyhElXiUtCKvB3p5e4+WsE5ZYy1kg==
+  version "1.1.0"
+  resolved "https://registry.npmmirror.com/@multiformats/multiaddr-matcher/-/multiaddr-matcher-1.1.0.tgz#27e14a549a00594c24d85897c4b0b7e83df3e59d"
+  integrity sha512-B/QbKpAxaHYVXFnbTdTgYqPDxmqoF2RYffwYoOv1MWfi2vBCZLdzmEKUBKv6fQr6s+LJFSHn2j2vczmwMFCQIA==
   dependencies:
     "@chainsafe/is-ip" "^2.0.1"
     "@multiformats/multiaddr" "^12.0.0"
@@ -2143,14 +2088,14 @@
     "@multiformats/multiaddr" "^12.0.0"
 
 "@multiformats/multiaddr@^12.0.0", "@multiformats/multiaddr@^12.1.3", "@multiformats/multiaddr@^12.1.5", "@multiformats/multiaddr@^12.1.8":
-  version "12.1.8"
-  resolved "https://registry.npmmirror.com/@multiformats/multiaddr/-/multiaddr-12.1.8.tgz#e4038039ca7f0f6e577956d1d74251343a315e32"
-  integrity sha512-9WCmSiQV3X8T3YR7cb7TieEumnJhRd9aGjeYFIN0VVvjAj7WciryDOE9Ot3W9RDwpjNeEwHDubM+tHBkPrdpzg==
+  version "12.1.10"
+  resolved "https://registry.npmmirror.com/@multiformats/multiaddr/-/multiaddr-12.1.10.tgz#a9c771ee84fe3fd4b2e3361aad38d3ff9e36939c"
+  integrity sha512-Bi3nJ/SE17+te40OLxFOpr9CvRodusZZLYZb3e5a0w9RzQcHzfKnnlfqdysLXZ2W5vXgxCUL/Uhndl51Ff2S+Q==
   dependencies:
     "@chainsafe/is-ip" "^2.0.1"
     "@chainsafe/netmask" "^2.0.0"
     "@libp2p/interface" "^0.1.1"
-    dns-over-http-resolver "^2.1.0"
+    dns-over-http-resolver "3.0.0"
     multiformats "^12.0.1"
     uint8-varint "^2.0.1"
     uint8arrays "^4.0.2"
@@ -3080,9 +3025,9 @@
     "@types/node" "*"
 
 "@types/node@*", "@types/node@>=13.7.0":
-  version "20.8.10"
-  resolved "https://repo.huaweicloud.com/repository/npm/@types/node/-/node-20.8.10.tgz#a5448b895c753ae929c26ce85cab557c6d4a365e"
-  integrity sha512-TlgT8JntpcbmKUFzjhsyhGfP2fsiz1Mv56im6enJ905xG1DAYesxJaeSbGqQmAw8OWPdhyJGhGSQGKRNJ45u9w==
+  version "20.9.0"
+  resolved "https://registry.npmmirror.com/@types/node/-/node-20.9.0.tgz#bfcdc230583aeb891cf51e73cfdaacdd8deae298"
+  integrity sha512-nekiGu2NDb1BcVofVcEKMIwzlx4NjHlcjhoxxKBNLtz15Y1z7MYf549DFvkHSId02Ax6kGwWntIBPC3l/JZcmw==
   dependencies:
     undici-types "~5.26.4"
 
@@ -3196,17 +3141,17 @@
     "@types/mime" "*"
     "@types/node" "*"
 
-"@types/sinon@^10.0.15":
-  version "10.0.20"
-  resolved "https://registry.npmmirror.com/@types/sinon/-/sinon-10.0.20.tgz#f1585debf4c0d99f9938f4111e5479fb74865146"
-  integrity sha512-2APKKruFNCAZgx3daAyACGzWuJ028VVCUDk6o2rw/Z4PXT0ogwdV4KUegW0MwVs0Zu59auPXbbuBJHF12Sx1Eg==
+"@types/sinon@^17.0.0":
+  version "17.0.1"
+  resolved "https://registry.npmmirror.com/@types/sinon/-/sinon-17.0.1.tgz#f17816577ee61d462cb7bfcea6ff64fb05063256"
+  integrity sha512-Q2Go6TJetYn5Za1+RJA1Aik61Oa2FS8SuJ0juIqUuJ5dZR4wvhKfmSdIqWtQ3P6gljKWjW0/R7FZkA4oXVL6OA==
   dependencies:
     "@types/sinonjs__fake-timers" "*"
 
 "@types/sinonjs__fake-timers@*":
-  version "8.1.4"
-  resolved "https://registry.npmmirror.com/@types/sinonjs__fake-timers/-/sinonjs__fake-timers-8.1.4.tgz#663bb44e01f6bae4eaae3719d8b037411217c992"
-  integrity sha512-GDV68H0mBSN449sa5HEj51E0wfpVQb8xNSMzxf/PrypMFcLTMwJMOM/cgXiv71Mq5drkOQmUGvL1okOZcu6RrQ==
+  version "8.1.5"
+  resolved "https://registry.npmmirror.com/@types/sinonjs__fake-timers/-/sinonjs__fake-timers-8.1.5.tgz#5fd3592ff10c1e9695d377020c033116cc2889f2"
+  integrity sha512-mQkU2jY8jJEF7YHjHvsQO8+3ughTL1mcnn96igfhONmR+fUPSKIkefQYpSe8bsly2Ep7oQbn/6VG5/9/0qcArQ==
 
 "@types/sockjs@^0.3.33":
   version "0.3.35"
@@ -5043,7 +4988,7 @@ debug@2.6.9, debug@^2.6.0:
 
 debug@4, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4:
   version "4.3.4"
-  resolved "https://repo.huaweicloud.com/repository/npm/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
+  resolved "https://registry.npmmirror.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
   dependencies:
     ms "2.1.2"
@@ -5146,15 +5091,7 @@ define-lazy-prop@^2.0.0:
   resolved "https://repo.huaweicloud.com/repository/npm/define-lazy-prop/-/define-lazy-prop-2.0.0.tgz#3f7ae421129bcaaac9bc74905c98a0009ec9ee7f"
   integrity sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==
 
-define-properties@^1.1.3, define-properties@^1.1.4, define-properties@^1.2.0:
-  version "1.2.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/define-properties/-/define-properties-1.2.0.tgz#52988570670c9eacedd8064f4a990f2405849bd5"
-  integrity sha512-xvqAVKGfT1+UAvPwKTVw/njhdQ8ZhXK4lI0bCIuCMrp2up9nPnaDftrLtmpTazqd1o+UY4zgzU+avtMbDP+ldA==
-  dependencies:
-    has-property-descriptors "^1.0.0"
-    object-keys "^1.1.1"
-
-define-properties@^1.2.1:
+define-properties@^1.1.3, define-properties@^1.1.4, define-properties@^1.2.0, define-properties@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmmirror.com/define-properties/-/define-properties-1.2.1.tgz#10781cc616eb951a80a034bafcaa7377f6af2b6c"
   integrity sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==
@@ -5285,15 +5222,13 @@ dns-equal@^1.0.0:
   resolved "https://repo.huaweicloud.com/repository/npm/dns-equal/-/dns-equal-1.0.0.tgz#b39e7f1da6eb0a75ba9c17324b34753c47e0654d"
   integrity sha512-z+paD6YUQsk+AbGCEM4PrOXSss5gd66QfcVBFTKR/HpFL9jCqikS94HYwKww6fQyO7IxrIIyUu+g0Ka9tUS2Cg==
 
-dns-over-http-resolver@^2.1.0:
-  version "2.1.3"
-  resolved "https://registry.npmmirror.com/dns-over-http-resolver/-/dns-over-http-resolver-2.1.3.tgz#bb7f2e10cc18d960339a6e30e21b8c1d99be7b38"
-  integrity sha512-zjRYFhq+CsxPAouQWzOsxNMvEN+SHisjzhX8EMxd2Y0EG3thvn6wXQgMJLnTDImkhe4jhLbOQpXtL10nALBOSA==
+dns-over-http-resolver@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmmirror.com/dns-over-http-resolver/-/dns-over-http-resolver-3.0.0.tgz#2a8edcfb1c830cc3fff0cd37f01b824a55fa209a"
+  integrity sha512-5+BI+B7n8LKhNaEZBYErr+CBd9t5nYtjunByLhrLGtZ+i3TRgiU8yE87pCjEBu2KOwNsD9ljpSXEbZ4S8xih5g==
   dependencies:
-    debug "^4.3.1"
-    native-fetch "^4.0.2"
+    debug "^4.3.4"
     receptacle "^1.3.2"
-    undici "^5.12.0"
 
 dns-packet@^5.2.2:
   version "5.6.1"
@@ -5972,7 +5907,7 @@ eventemitter3@^5.0.1:
 
 events@^3.2.0, events@^3.3.0:
   version "3.3.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
+  resolved "https://registry.npmmirror.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
   integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
 
 evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
@@ -6946,7 +6881,7 @@ ipaddr.js@1.9.1:
 
 ipaddr.js@^2.0.1, ipaddr.js@^2.1.0:
   version "2.1.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/ipaddr.js/-/ipaddr.js-2.1.0.tgz#2119bc447ff8c257753b196fc5f1ce08a4cdf39f"
+  resolved "https://registry.npmmirror.com/ipaddr.js/-/ipaddr.js-2.1.0.tgz#2119bc447ff8c257753b196fc5f1ce08a4cdf39f"
   integrity sha512-LlbxQ7xKzfBusov6UMi4MFpEg0m+mAm9xyNGEduwXMEDuf4WfzB/RZwMVYEd7IKGvh4IUkEXYxtAVu9T3OelJQ==
 
 is-arguments@^1.0.4, is-arguments@^1.1.1:
@@ -7301,9 +7236,9 @@ istanbul-reports@^3.1.3:
     istanbul-lib-report "^3.0.0"
 
 it-all@^3.0.0, it-all@^3.0.1, it-all@^3.0.2:
-  version "3.0.3"
-  resolved "https://registry.npmmirror.com/it-all/-/it-all-3.0.3.tgz#af77dc73000c1a232a179b4196e367fe29a0a47f"
-  integrity sha512-LwEVD1d0b1O5mDwumnZk+80jSBn5sXDxQ41xiD6j6l2lRiWH6lBLdxXx1C6mlKrXQwRHzUQagOZUmqttDUwb0A==
+  version "3.0.4"
+  resolved "https://registry.npmmirror.com/it-all/-/it-all-3.0.4.tgz#08f2e3eb3df04fa4525a343dcacfbdf91ffee162"
+  integrity sha512-UMiy0i9DqCHBdWvMbzdYvVGa5/w4t1cc4nchpbnjdLhklglv8mQeEYnii0gvKESJuL1zV32Cqdb33R6/GPfxpQ==
 
 it-batched-bytes@^2.0.2:
   version "2.0.4"
@@ -7323,21 +7258,21 @@ it-byte-stream@^1.0.0:
     uint8arraylist "^2.4.1"
 
 it-drain@^3.0.1, it-drain@^3.0.2:
-  version "3.0.3"
-  resolved "https://registry.npmmirror.com/it-drain/-/it-drain-3.0.3.tgz#f80719d3d0d7e7d02dc298d86ca9d0e7f7bd666b"
-  integrity sha512-l4s+izxUpFAR2axprpFiCaq0EtxK1QMd0LWbEtau5b+OegiZ5xdRtz35iJyh6KZY9QtuwEiQxydiOfYJc7stoA==
+  version "3.0.5"
+  resolved "https://registry.npmmirror.com/it-drain/-/it-drain-3.0.5.tgz#d7aed18a16a12c157fa477653fb42c1b4f08491c"
+  integrity sha512-qYFe4SWdvs9oJGUY5bSjvmiLUMLzFEODNOQUdYdCIkuIgQF+AUB2INhM4yQ09buJ2rhHKDFxvTD/+yUq6qg0XA==
 
 it-filter@^3.0.0, it-filter@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.npmmirror.com/it-filter/-/it-filter-3.0.3.tgz#95f96083d101c7f3be7829b056b89ae904746b96"
-  integrity sha512-2zXUrJuuV6QHM21ahc8NqVUUxkLMVDWXBoUBcj9GCQLQez2OXmddTHN0r0F5B+TkNTpeL618yIgXi1HNPJOxow==
+  version "3.0.4"
+  resolved "https://registry.npmmirror.com/it-filter/-/it-filter-3.0.4.tgz#f8af5919ca7fc72f718edb3e7c0d71581aa149c6"
+  integrity sha512-e0sz+st4sudK/zH6GZ/gRTRP8A/ADuJFCYDmRgMbZvR79y5+v4ZXav850bBZk5wL9zXaYZFxS1v/6Qi+Vjwh5g==
   dependencies:
     it-peekable "^3.0.0"
 
 it-first@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.npmmirror.com/it-first/-/it-first-3.0.3.tgz#76d4b7b0c761114690dd46d730333ac55ee4e350"
-  integrity sha512-RC8tplctsDpoBUljwsp1viiyaR5fPvMe+FgbbcU0sFjKkJa7iwbB4CCPhHtVYSdjsrREfr0QEotfQrBoGyt7Dw==
+  version "3.0.4"
+  resolved "https://registry.npmmirror.com/it-first/-/it-first-3.0.4.tgz#d68c8ae646ea402cd5e650c352da69988a310342"
+  integrity sha512-FtQl84iTNxN5EItP/JgL28V2rzNMkCzTUlNoj41eVdfix2z1DBuLnBqZ0hzYhGGa1rMpbQf0M7CQSA2adlrLJg==
 
 it-foreach@^2.0.3:
   version "2.0.4"
@@ -7381,21 +7316,21 @@ it-length-prefixed@^9.0.1:
     uint8arrays "^4.0.2"
 
 it-length@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.npmmirror.com/it-length/-/it-length-3.0.3.tgz#1773522ba6c21e7146bf7f1322011f17b3d96e27"
-  integrity sha512-aLoeonDJV6wMgT1ElEruc61c3FYxGa3yymujfZ0Uk4Up7mUJ15xl1ixxPnGbm+BnMkEQylJXjzp1vNYEY9blvg==
+  version "3.0.4"
+  resolved "https://registry.npmmirror.com/it-length/-/it-length-3.0.4.tgz#d178a18a6baf2cb448aeed53b6c854262abf38a1"
+  integrity sha512-RS3thYkvqtWksrV7SaAnTv+pgY7ozpS17HlRvWvcnoRjVyNJMuffdCkIKpKNPTq5uZw9zVnkVKLO077pJn5Yhg==
 
 it-map@^3.0.1, it-map@^3.0.3:
-  version "3.0.4"
-  resolved "https://registry.npmmirror.com/it-map/-/it-map-3.0.4.tgz#616c79719025d96bbb344c172d57d4302ba12109"
-  integrity sha512-h5zCxovJQ+mzJT75xP4GkJuFrJQ5l7IIdhZ6AOWaE02g5F7T1k1j4CB/uKSRR05LLLOi1LqG+7CrH9bi8GIXYA==
+  version "3.0.5"
+  resolved "https://registry.npmmirror.com/it-map/-/it-map-3.0.5.tgz#30b1e1324cdb4aaadba29cd989485168d1dc4136"
+  integrity sha512-hB0TDXo/h4KSJJDSRLgAPmDroiXP6Fx1ck4Bzl3US9hHfZweTKsuiP0y4gXuTMcJlS6vj0bb+f70rhkD47ZA3w==
   dependencies:
     it-peekable "^3.0.0"
 
 it-merge@^3.0.0, it-merge@^3.0.1:
-  version "3.0.2"
-  resolved "https://registry.npmmirror.com/it-merge/-/it-merge-3.0.2.tgz#9070c85fda022cd210811960c2153e16a5978356"
-  integrity sha512-bMk2km8lTz+Rwv30hzDUdGIcqQkOemFJqmGT2wqQZ6/zHKCsYqdRunPrteCqHLV/nIVhUK8nZZkDA2eJ4MJZiA==
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/it-merge/-/it-merge-3.0.3.tgz#c7d407c8e0473accf7f9958ce2e0f60276002e84"
+  integrity sha512-FYVU15KC5pb/GQX1Ims+lee8d4pdqGVCpWr0lkNj8o4xuNo7jY71k6GuEiWdP+T7W1bJqewSxX5yoTy5yZpRVA==
   dependencies:
     it-pushable "^3.2.0"
 
@@ -7408,16 +7343,16 @@ it-pair@^2.0.6:
     p-defer "^4.0.0"
 
 it-parallel@^3.0.0:
-  version "3.0.4"
-  resolved "https://registry.npmmirror.com/it-parallel/-/it-parallel-3.0.4.tgz#f6bfd2a3386a48824231460616942f28a19a8bae"
-  integrity sha512-fuA+SysGxbZc+Yl7EUvzQqZ8bNYQghZ0Mq9zA+fxMQ5eQYzatNg6oJk1y1PvPvNqLgKJMzEInpRO6PbLC3hGAg==
+  version "3.0.6"
+  resolved "https://registry.npmmirror.com/it-parallel/-/it-parallel-3.0.6.tgz#d8f9efa56dac5f960545b3a148d2ca171694d228"
+  integrity sha512-i7UM7I9LTkDJw3YIqXHFAPZX6CWYzGc+X3irdNrVExI4vPazrJdI7t5OqrSVN8CONXLAunCiqaSV/zZRbQR56A==
   dependencies:
     p-defer "^4.0.0"
 
 it-peekable@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.npmmirror.com/it-peekable/-/it-peekable-3.0.2.tgz#3f9d186da3ccf4f0dfb9ca852316fd4db71ef8f6"
-  integrity sha512-nWwUdhNQ1CfAuoJmsaUotNMYUrfNIlY9gBA1jwWfWSu1I0mLY2brwreKHGOUptXLJUiG5pR04He0xYZMWBRiGA==
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/it-peekable/-/it-peekable-3.0.3.tgz#5f5741f34f3acd5735804f40d198652c54a3d8c1"
+  integrity sha512-Wx21JX/rMzTEl9flx3DGHuPV1KQFGOl8uoKfQtmZHgPQtGb89eQ6RyVd82h3HuP9Ghpt0WgBDlmmdWeHXqyx7w==
 
 it-pipe@^3.0.0, it-pipe@^3.0.1:
   version "3.0.1"
@@ -7438,10 +7373,10 @@ it-protobuf-stream@^1.0.0:
     protons-runtime "^5.0.0"
     uint8arraylist "^2.4.1"
 
-it-pushable@^3.0.0, it-pushable@^3.1.0, it-pushable@^3.1.2, it-pushable@^3.2.0:
-  version "3.2.1"
-  resolved "https://registry.npmmirror.com/it-pushable/-/it-pushable-3.2.1.tgz#72d7ccf7e7c0ccecf8cbaf74064f7be56e775c59"
-  integrity sha512-sLFz2Q0oyDCJpTciZog7ipP4vSftfPy3e6JnH6YyztRa1XqkpGQaafK3Jw/JlfEBtCXfnX9uVfcpu3xpSAqCVQ==
+it-pushable@^3.0.0, it-pushable@^3.1.0, it-pushable@^3.1.2, it-pushable@^3.2.0, it-pushable@^3.2.1:
+  version "3.2.2"
+  resolved "https://registry.npmmirror.com/it-pushable/-/it-pushable-3.2.2.tgz#e041e07abc27ee0a97492a6c3640843bf79b471c"
+  integrity sha512-eGY2lKZxa4hNNRPNuL4r7Eluk//j6jL4zEmQUzAHYKG912sY/RzzEpfJedZcnEdf6zB7b8NdHOf0chCm2sL/xw==
   dependencies:
     p-defer "^4.0.0"
 
@@ -7454,9 +7389,9 @@ it-reader@^6.0.1:
     uint8arraylist "^2.0.0"
 
 it-sort@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.npmmirror.com/it-sort/-/it-sort-3.0.3.tgz#c218ac91bc08ebc1894c2e9a60957e688d181f1f"
-  integrity sha512-9BuQc5Y2fmBUNhevQBUDHfItrQmzWoZcnzydJl91V6na6M+RkbNj71UtCPPNIpOt/SQG+va0pe1wMQJ9lP2Oew==
+  version "3.0.4"
+  resolved "https://registry.npmmirror.com/it-sort/-/it-sort-3.0.4.tgz#250152bf4abf3fa9572954305424bafb3199fa63"
+  integrity sha512-tvnC93JZZWjX4UxALy0asow0dzXabkoaRbrPJKClTKhNCqw4gzHr+H5axf1gohcthedRRkqd/ae+wl7WqoxFhw==
   dependencies:
     it-all "^3.0.0"
 
@@ -7466,9 +7401,9 @@ it-stream-types@^2.0.1:
   integrity sha512-6DmOs5r7ERDbvS4q8yLKENcj6Yecr7QQTqWApbZdfAUTEC947d+PEha7PCqhm//9oxaLYL7TWRekwhoXl2s6fg==
 
 it-take@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.npmmirror.com/it-take/-/it-take-3.0.3.tgz#6403613a4a78b4221aefab401dcff42d42eb7445"
-  integrity sha512-Ay5SXEyrBKD0tO8PQif2QjrStImIsLIg0F50Uu4EeXOw8C9DfVIGfsGL3X9s65F2I9skDp9mLgBzl71IToMxNw==
+  version "3.0.4"
+  resolved "https://registry.npmmirror.com/it-take/-/it-take-3.0.4.tgz#a1614d6ee03f1bee9af89255897de3e249e49d1d"
+  integrity sha512-RG8HDjAZlvkzz5Nav4xq6gK5zNT+Ff1UTIf+CrSJW8nIl6N1FpBH5e7clUshiCn+MmmMoSdIEpw4UaTolszxhA==
 
 it-to-buffer@^4.0.2:
   version "4.0.3"
@@ -8255,31 +8190,30 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libp2p@^0.46.16:
-  version "0.46.16"
-  resolved "https://registry.npmmirror.com/libp2p/-/libp2p-0.46.16.tgz#b5269ab243bfbfa3f26959a204653f75b184748c"
-  integrity sha512-auhVn4R7VAp3M7eAyJJ59eLjhiKvGzxdIiAYgZYU5yv0q6NqpLH9U0yzRTuTWZOwIVmJRbcuAJb7oByCgR2deg==
+libp2p@^0.46.21:
+  version "0.46.21"
+  resolved "https://registry.npmmirror.com/libp2p/-/libp2p-0.46.21.tgz#721c885782191cc0bc167adbd38638194963f3f9"
+  integrity sha512-p/3vCpw+ciizhlBofpzuez+4Fs8EeVFaVQZUQPwnQwycuOFcWLBhcqkOtv4KlqImFKOk+9TuyW1Xofjmr/wPnA==
   dependencies:
     "@achingbrain/nat-port-mapper" "^1.0.9"
-    "@libp2p/crypto" "^2.0.6"
-    "@libp2p/interface" "^0.1.4"
-    "@libp2p/interface-internal" "^0.1.7"
-    "@libp2p/keychain" "^3.0.6"
-    "@libp2p/logger" "^3.0.4"
-    "@libp2p/multistream-select" "^4.0.4"
-    "@libp2p/peer-collections" "^4.0.6"
-    "@libp2p/peer-id" "^3.0.4"
-    "@libp2p/peer-id-factory" "^3.0.6"
-    "@libp2p/peer-record" "^6.0.7"
-    "@libp2p/peer-store" "^9.0.7"
-    "@libp2p/utils" "^4.0.5"
+    "@libp2p/crypto" "^2.0.8"
+    "@libp2p/interface" "^0.1.6"
+    "@libp2p/interface-internal" "^0.1.9"
+    "@libp2p/keychain" "^3.0.8"
+    "@libp2p/logger" "^3.1.0"
+    "@libp2p/multistream-select" "^4.0.6"
+    "@libp2p/peer-collections" "^4.0.8"
+    "@libp2p/peer-id" "^3.0.6"
+    "@libp2p/peer-id-factory" "^3.0.8"
+    "@libp2p/peer-record" "^6.0.9"
+    "@libp2p/peer-store" "^9.0.9"
+    "@libp2p/utils" "^4.0.7"
     "@multiformats/mafmt" "^12.1.2"
     "@multiformats/multiaddr" "^12.1.5"
     "@multiformats/multiaddr-matcher" "^1.0.0"
     any-signal "^4.1.1"
     datastore-core "^9.0.1"
     delay "^6.0.0"
-    events "^3.3.0"
     interface-datastore "^8.2.0"
     it-all "^3.0.2"
     it-drain "^3.0.2"
@@ -8716,12 +8650,12 @@ ms@2.0.0:
 
 ms@2.1.2:
   version "2.1.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
+  resolved "https://registry.npmmirror.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
 ms@2.1.3, ms@^2.1.1:
   version "2.1.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
+  resolved "https://registry.npmmirror.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
 multibase@^4.0.1:
@@ -8781,11 +8715,6 @@ napi-build-utils@^1.0.1:
   version "1.0.2"
   resolved "https://registry.npmmirror.com/napi-build-utils/-/napi-build-utils-1.0.2.tgz#b1fddc0b2c46e380a0b7a76f984dd47c41a13806"
   integrity sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==
-
-native-fetch@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.npmmirror.com/native-fetch/-/native-fetch-4.0.2.tgz#75c8a44c5f3bb021713e5e24f2846750883e49af"
-  integrity sha512-4QcVlKFtv2EYVS5MBgsGX5+NWKtbDbIECdUXDBGDMAZXq3Jkv9zf+y8iS7Ub8fEdga3GpYeazp9gauNqXHJOCg==
 
 natural-compare-lite@^1.4.0:
   version "1.4.0"
@@ -8856,7 +8785,7 @@ node-fetch@^3.3.0:
 
 node-forge@^1, node-forge@^1.1.0:
   version "1.3.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/node-forge/-/node-forge-1.3.1.tgz#be8da2af243b2417d5f646a770663a92b7e9ded3"
+  resolved "https://registry.npmmirror.com/node-forge/-/node-forge-1.3.1.tgz#be8da2af243b2417d5f646a770663a92b7e9ded3"
   integrity sha512-dPEtOeMvF9VMcYV/1Wb8CPoVAXtp6MKMlcbAt4ddqmGqUJ6fQZFXkNZNkNlfevtNkGtaSoXf/vNNNSvgrdXwtA==
 
 node-int64@^0.4.0:
@@ -11763,15 +11692,8 @@ underscore@1.12.1:
 
 undici-types@~5.26.4:
   version "5.26.5"
-  resolved "https://repo.huaweicloud.com/repository/npm/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
+  resolved "https://registry.npmmirror.com/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
   integrity sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==
-
-undici@^5.12.0:
-  version "5.27.0"
-  resolved "https://registry.npmmirror.com/undici/-/undici-5.27.0.tgz#789f2e40ce982b5507899abc2c2ddeb2712b4554"
-  integrity sha512-l3ydWhlhOJzMVOYkymLykcRRXqbUaQriERtR70B9LzNkZ4bX52Fc8wbTDneMiwo8T+AemZXvXaTx+9o5ROxrXg==
-  dependencies:
-    "@fastify/busboy" "^2.0.0"
 
 unicode-canonical-property-names-ecmascript@^2.0.0:
   version "2.0.0"

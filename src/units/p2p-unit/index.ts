@@ -16,7 +16,7 @@ import {EventUnit} from "../event-unit";
 import {PeerId} from "@libp2p/interface/peer-id";
 import {dnsaddrBootstrap} from "@/units/p2p-unit/dnsaddr-bootstrap";
 import {Multiaddr} from "@multiformats/multiaddr";
-import {webRTCFix} from "@/units/p2p-unit/webrtc-fix";
+import {webRTC} from "@libp2p/webrtc";
 
 type P2pNodeWithService = Awaited<ReturnType<typeof createP2pNode>>
 
@@ -33,7 +33,7 @@ export async function createP2pNode(peerId: PeerId) {
     transports: [
       webSockets(),
       webRTCDirect(),
-      webRTCFix({
+      webRTC({
         rtcConfiguration: {
           iceServers: [
             { urls: "stun:stun.stunprotocol.org:3478" },
@@ -60,7 +60,8 @@ export async function createP2pNode(peerId: PeerId) {
       dnsaddrBootstrap({
         list: [
           '/dnsaddr/bootstrap.libp2p.io',
-          '/dnsaddr/bootstrap.libmemo.app',
+          // '/dnsaddr/bootstrap.libmemo.app',
+          // '/dns4/local.wep-server.dev/tcp/443/wss/p2p/12D3KooWEEkMYYgRta9NGqvUS6xd94ufwqzmJLp8LhmThQq6m86C'
         ]
       })
     ],
